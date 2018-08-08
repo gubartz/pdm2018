@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--TODO(1) Trocar o ConstraintLayout para LinearLayout -->
+<!--TODO(2) Definir orientation como vertical -->
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.edu.ifsp.hto.buscagithub.MainActivity">
+
+    <!--TODO(3) Adicionar um EditText-->
+    <!--TODO(4) Definir o id @+id/e_busca-->
+    <!--TODO(5) Definir o width como match_parent e o height como wrap_content-->
+    <!--TODO(6) Definir um hint indicado que o usuário deve digitar um texto para busca -->
+
+    <!--TODO(7) Adicionar um botão com o texto Procurar-->
+
+    <!--TODO(8) Adicionar um ScrollView-->
+    <!--TODO(9) Definir o width como match_parent e o height como wrap_content-->
+    <!--TODO(10) Definir a margem do top para 16dp-->
+
+        <!--TODO(11) Dentro do ScrollView. Adicionar um TextView-->
+        <!--TODO(12) Definir o id @+id/t_resultado-->
+        <!--TODO(13) Definir a margem do top para 8dp-->
+
+</android.support.constraint.ConstraintLayout>

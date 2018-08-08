@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO(1) Alterar o ConstraintLayout para FrameLayout
+    Não é necessário informar o nome completo, como é o caso do ConstraintLayout.
+    Use apenas FrameLayout
+    -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.edu.ifsp.hto.comidasfavoritas.MainActivity">
+
+    <!--TODO(2) Remover os atributos que possuem a palavra constraint -->
+    <!--TODO(3) Remover o texto Hello World -->
+    <!--TODO(4) Definir 16dp como padding -->
+    <!--TODO(5) Definir 20sp para o tamanho do texto -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textSize="20sp" />
+
+</FrameLayout>
