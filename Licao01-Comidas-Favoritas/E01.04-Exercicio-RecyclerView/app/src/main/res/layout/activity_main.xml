@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.edu.ifsp.hto.comidasfavoritas.MainActivity">
+
+    <!--TODO(2) Adicionar um RecyclerView-->
+    <!--TODO(3) Width como match_parent e height como wrap_content-->
+    <!--TODO(4) Colocar um id rv_lista-->
+
+    <!--TODO(5) Criar um arquivo de layout chamado lista_item.xml-->
+        <!--Em lista_item.xml -->
+            <!--TODO(6) Definir o layout container como LinearLayout com orientação
+                vertical e height como wrap_content
+                paddingBottom de 16dp-->
+            <!--TODO(7) Adicionar um TextView-
+                width match_parent e height wrap_content
+                id = t_comida-->
+
+
+</FrameLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO(6) Definir o layout container como LinearLayout com orientação
+    vertical e height como wrap_content
+    paddingBottom de 16dp-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="16dp">
+
+    <!--TODO(7) Adicionar um TextView-
+            width match_parent e height wrap_content
+            id = t_comida-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/t_comida" />
+
+</LinearLayout>
