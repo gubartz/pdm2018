@@ -16,12 +16,13 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
         
-        //Todo(2) Verificar se os dados para conexão ao BD estão corretos.
+        //Todo(1) Verificar se os dados para conexão ao BD estão corretos.
         //database
         'db' => [
+            'driver' => 'mysql',
             'host'   => 'localhost',
             'dbname' => 'lista_espera',
-            'user'   => 'postgres',
+            'user'   => 'root',
             'pass'   => ''
         ]
     ],
