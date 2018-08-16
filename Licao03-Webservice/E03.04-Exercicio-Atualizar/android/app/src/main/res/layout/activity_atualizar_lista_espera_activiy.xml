@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AtualizarListaEsperaActiviy">
+
+    <!--TODO(1) Definir um TextView com o texto Nome da Reserva-->
+
+    <!--TODO(2) Definir um EditText com o id e_nome_reserva-->
+
+    <!--TODO(3) Definir um TextView com o texto Total de Pessoas-->
+
+    <!--TODO(4) Definir um EditText com o id e_total_pessoas-->
+
+    <!--TODO(5) Definir um Button-->
+    <!--TODO(6) Colocar no texto do botão Atualizar-->
+    <!--TODO(7) Colocar no onClick o valor onClickBtAtualizar. Criar o método correspondente na AtualizarListaEsperaActiviy-->
+
+</LinearLayout>
