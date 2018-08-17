@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 //TODO(11) Implementar a interface OnClickItemListener definida no adapter
-public class MainActivity extends AppCompatActivity implements ComidaAdapter.OnClickItemListener {
+public class MainActivity extends AppCompatActivity implements ComidaAdapter.OnClickItemListener{
     RecyclerView mRvLista;
 
     @Override

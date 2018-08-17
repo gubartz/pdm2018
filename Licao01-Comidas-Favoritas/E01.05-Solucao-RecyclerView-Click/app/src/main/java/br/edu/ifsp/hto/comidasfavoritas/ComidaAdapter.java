@@ -10,18 +10,18 @@ import android.widget.TextView;
 public class ComidaAdapter extends RecyclerView.Adapter<ComidaAdapter.ComidaViewHolder>{
     String[] mComidas;
 
-    //TODO(3) Definir um atributo de classe do tipo onClickItemListener
-    onClickItemListener mOnClickItemListener;
+    //TODO(3) Definir um atributo de classe do tipo OnClickItemListener
+    OnClickItemListener mOnClickItemListener;
 
     //TODO(1) Definir uma interface chamada OnClickItemListener
         //Dentro da interface
-    interface onClickItemListener{
+    interface OnClickItemListener {
         //TODO(2) Definir um método chamado onClickItem que recebe um String
         void onClickItem(String comida);
     }
 
-    //TODO(10) Adicionar ao construtor um parâmetro do tipo onClickItemListener
-    public ComidaAdapter(String[] mComidas, onClickItemListener mOnClickItemListener) {
+    //TODO(10) Adicionar ao construtor um parâmetro do tipo OnClickItemListener
+    public ComidaAdapter(String[] mComidas, OnClickItemListener mOnClickItemListener) {
         this.mComidas = mComidas;
         this.mOnClickItemListener = mOnClickItemListener;
     }
