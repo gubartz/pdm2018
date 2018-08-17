@@ -12,7 +12,7 @@ public class ComidaAdapter extends RecyclerView.Adapter<ComidaAdapter.ComidaView
 
     //TODO(3) Definir um atributo de classe do tipo onClickItemListener
 
-    //TODO(1) Definir uma interface chamada onClickItemListener
+    //TODO(1) Definir uma interface chamada OnClickItemListener
         //Dentro da interface
         //TODO(2) Definir um método chamado onClickItem que recebe um String
 
