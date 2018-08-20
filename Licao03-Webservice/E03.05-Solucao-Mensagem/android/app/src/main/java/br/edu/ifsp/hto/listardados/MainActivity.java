@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
 
         ListaEsperaService listaEsperaService = restClient.getListaEsperaService();
 
-        //TODO(6) Ajudar o código para as alterações realizadas na interface
+        //TODO(6) Ajustar o código para as alterações realizadas na interface
         Call<Resource<List<ListaEspera>>> list = listaEsperaService.list();
 
         //TODO(7) Dentro do onResponse
