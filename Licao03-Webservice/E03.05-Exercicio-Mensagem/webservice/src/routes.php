@@ -9,7 +9,7 @@ $app->get('/lista_espera', function ($request, $response) {
 	$db = $this->db;
 
 	try{
-		$sth = $db->prepare('SELECT * FROM lista_espera1 ORDER BY data_cadastro');
+		$sth = $db->prepare('SELECT * FROM lista_espera ORDER BY data_cadastro');
 		$sth->execute();
 		while($linha = $sth->fetch()){
 			$retorno['data'][] = $linha;
