@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.edu.ifsp.hto.listardados.MainActivity">
+    tools:context="br.edu.ifsp.hto.listaespera.br.edu.ifsp.hto.listaespera.MainActivity">
 
     <LinearLayout
         android:id="@+id/lista_espera_view"

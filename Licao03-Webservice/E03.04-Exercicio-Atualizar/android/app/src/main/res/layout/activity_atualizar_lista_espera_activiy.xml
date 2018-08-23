@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AtualizarListaEsperaActiviy">
+    tools:context="br.edu.ifsp.hto.listaespera.AtualizarListaEsperaActiviy">
 
     <!--TODO(1) Definir um TextView com o texto Nome da Reserva-->
 

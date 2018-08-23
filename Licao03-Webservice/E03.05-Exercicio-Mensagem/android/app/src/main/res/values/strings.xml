@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Listar Dados</string>
+    <string name="app_name">Lista de Espera</string>
     <string name="adicionar">Adicionar</string>
     <string name="nome_da_reserva">Nome da Reserva</string>
     <string name="total_de_pessoas">Total de Pessoas</string>
