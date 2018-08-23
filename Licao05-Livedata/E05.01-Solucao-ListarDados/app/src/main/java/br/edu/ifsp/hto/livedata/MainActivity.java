@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         LiveData<List<ListaEspera>> listLiveData = mDb.listaEsperaDAO().loadAllListaEspera();
         //TODO(22) Utilizar o método observe e atualizar a UI (método setListaEspera do adapter)
             //Passar this como primeiro argumento e um Observer no segundo
-            //Sobrescrever o método onChanged e atualizar a UI (método
+            //Sobrescrever o método onChanged e atualizar a UI utilizando o adapter
         listLiveData.observe(this, new Observer<List<ListaEspera>>() {
             @Override
             public void onChanged(@Nullable List<ListaEspera> listaEsperas) {
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //TODO(23) Tirar os comentários do código abaixo
+        //Utilizar em mDb o atributo de classe que você definiu no passo 18
     private void loadInitialData(){
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
