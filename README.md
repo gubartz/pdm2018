@@ -1,30 +1,10 @@
 # Curso - Programação de Dispositivos Móveis - IFSP - HTO
-Este repositório mantém os projetos utilizados na disciplina de Programação de Dispostivos Móveis
+Este repositório mantém os projetos utilizados na disciplina de Programação de Dispositivos Móveis.
 
-#Projetos contidos neste repositório
-<h1>Licao01-Comidas-Favoritas</h1>
-<table>
-	<thead>
-		<tr>
-			<th>Projeto</th>
-			<th>Descrição</th>
-		</tr>
-	</thead>
-	<tbody>
-			<tr>
-				<td>
-					[E01.01-Exercicio-CriarLayout](/Licao01-Comidas-Favoritas/E01.01-Exercicio-CriarLayout/)
-					<br />
-					[E01.01-Solucao-CriarLayout](Licao01-Comidas-Favoritas/E01.01-Solucao-CriarLayout/)
-				</td>
-				<td>
-					Introduz o conceito de layout container com o uso de Framelayout.
-				</td>
-			</tr>
-	</tbody>
-</table>
-
-
+# Projetos contidos neste repositório
+|Projeto|Descrição |
+|--|--|
+|[E01.01-Exercicio-CriarLayout](/Licao01-Comidas-Favoritas/E01.01-Exercicio-CriarLayout/) <br /> [E01.01-Solucao-CriarLayout](Licao01-Comidas-Favoritas/E01.01-Solucao-CriarLayout/)|Introduz o conceito de layout container com o uso de Framelayout.|
 
 # Instruções para os projetos que possuem webservice
 
