@@ -1,20 +1,11 @@
 package br.edu.ifsp.hto.livedata;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-
-import java.util.List;
 
 import br.edu.ifsp.hto.livedata.adapter.ListaEsperaAdapter;
-import br.edu.ifsp.hto.livedata.database.AppDatabase;
-import br.edu.ifsp.hto.livedata.entities.ListaEspera;
-import br.edu.ifsp.hto.livedata.utilities.AppExecutors;
 
 public class MainActivity extends AppCompatActivity {
     //TODO(18) Declarar um atributo de classe para manter o AppDatabase

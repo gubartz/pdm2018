@@ -1,12 +1,8 @@
 package br.edu.ifsp.hto.livedata.database;
 
-import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
-import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
-
-import br.edu.ifsp.hto.livedata.entities.ListaEspera;
 
 //TODO(5) Adicionar a annotation Database
 //TODO(6) Definir em entities a ListaEspera, colocar version 1 e exportSchema para falso
