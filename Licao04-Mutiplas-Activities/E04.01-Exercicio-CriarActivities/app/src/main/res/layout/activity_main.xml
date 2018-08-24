@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--TODO(1) Adicionar um botão com o texto Presidente -->
+    <!--TODO(2) Definir o atributo onClick como onClickBtPresidente e criar o método correspondente em MainActivity-->
+
+    <!--TODO(3) Adicionar um botão com o Senador -->
+    <!--TODO(4) Definir o atributo onClick como onClickBtSenador e criar o método correspondente em MainActivity -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="@color/colorPrimary" />
+
+    <!--TODO(9) Definir um TextView com o id t_presidente -->
+
+    <!--TODO(10) Definir um TextView com o id t_senador -->
+
+</LinearLayout>

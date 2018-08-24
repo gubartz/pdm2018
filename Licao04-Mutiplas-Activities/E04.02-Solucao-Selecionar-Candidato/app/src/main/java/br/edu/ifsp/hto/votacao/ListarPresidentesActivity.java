@@ -15,7 +15,7 @@ import br.edu.ifsp.hto.votacao.entities.Candidato;
 public class ListarPresidentesActivity extends AppCompatActivity implements CandidatoAdapter.OnClickItemListener{
     //TODO(2) Definir um atributo para o RecyclerView
     RecyclerView mPresidentesRecyclerView;
-    //TODO(19) Definir um atributo String estático chamado RETURN_EXTRA_PRESIDENTE
+    //TODO(13) Definir um atributo String estático chamado RETURN_EXTRA_PRESIDENTE
     //o conteúdo deve ser return_extra_presidente
     static String RETURN_EXTRA_PRESIDENTE = "return_extra_presidente";
 
@@ -46,14 +46,14 @@ public class ListarPresidentesActivity extends AppCompatActivity implements Cand
     //Implementar o método definido na interface onClickItem(Candidato candidato)
     @Override
     public void onClickItem(Candidato candidato) {
-        //TODO(20) Criar uma Intent
+        //TODO(14) Criar uma Intent
         Intent result = new Intent();
-        //TODO(21) Utilizar o  método putExtra e colocar o candidato clicado (parâmetro do método onClickItem)
+        //TODO(15) Utilizar o  método putExtra e colocar o candidato clicado (parâmetro do método onClickItem)
         //A chave deve ser RETURN_EXTRA_PRESIDENTE
         result.putExtra(RETURN_EXTRA_PRESIDENTE, candidato);
-        //TODO(22) Chamar o método setResult com a constante RESULT_OK e a intent criada
+        //TODO(16) Chamar o método setResult com a constante RESULT_OK e a intent criada
         setResult(RESULT_OK, result);
-        //TODO(23) Chamar o método finish
+        //TODO(17) Chamar o método finish
         finish();
     }
 }
