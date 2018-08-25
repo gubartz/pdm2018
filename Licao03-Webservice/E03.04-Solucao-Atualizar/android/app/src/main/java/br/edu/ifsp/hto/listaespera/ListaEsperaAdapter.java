@@ -9,19 +9,19 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import br.edu.ifsp.hto.listaespera.entities.ListaEspera;
+import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
 
 
 public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.ListaEsperaViewHolder>{
-    private List<ListaEspera> mListaEspera;
+    private List<ListaEsperaEntry> mListaEspera;
     //TODO(13) Declarar um atributo para a interface OnItemClickListener
     OnItemClickListener mOnItemClickListener;
 
     //TODO(11) Definir uma interface OnItemClickListener
         //Dentro de OnItemClickListener
     interface OnItemClickListener {
-        //TODO(12) Definir um método onClickItem que recebe um ListaEspera
-        void onClickItem(ListaEspera listaEspera);
+        //TODO(12) Definir um método onClickItem que recebe um ListaEsperaEntry
+        void onClickItem(ListaEsperaEntry listaEspera);
     }
 
     //TODO(21) Definir um construtor que recebe um OnItemClickListener e atribuí-lo para o atributo de classe (passo 13)
@@ -41,7 +41,7 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ListaEsperaViewHolder holder, int position) {
-        ListaEspera listaEspera = mListaEspera.get(position);
+        ListaEsperaEntry listaEspera = mListaEspera.get(position);
 
         holder.bind(listaEspera);
     }
@@ -55,12 +55,12 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
         return 0;
     }
 
-    public void setListaEspera(List<ListaEspera> listaEspera){
+    public void setListaEspera(List<ListaEsperaEntry> listaEspera){
         mListaEspera = listaEspera;
         this.notifyDataSetChanged();
     }
 
-    public List<ListaEspera> getListaEspera() {
+    public List<ListaEsperaEntry> getListaEspera() {
         return mListaEspera;
     }
 
@@ -77,7 +77,7 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
             itemView.setOnClickListener(this);
         }
 
-        public void bind(ListaEspera listaEspera){
+        public void bind(ListaEsperaEntry listaEspera){
             mNomeReservaTextView.setText(listaEspera.getNomeReserva());
             mTotalPessoasTextView.setText(String.valueOf(listaEspera.getTotalPessoas()));
         }
@@ -89,8 +89,8 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
             //TODO(16) Recuperar a posição no adapter
             int position = getAdapterPosition();
             //TODO(17) Recuperar o elemento da lista correspondnete
-            ListaEspera listaEspera = mListaEspera.get(position);
-            //TODO(18) Chamar o método onClickItem da interface mOnItemClickListener passar o objeto ListaEspera correspondente
+            ListaEsperaEntry listaEspera = mListaEspera.get(position);
+            //TODO(18) Chamar o método onClickItem da interface mOnItemClickListener passar o objeto ListaEsperaEntry correspondente
             mOnItemClickListener.onClickItem(listaEspera);
         }
     }

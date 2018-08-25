@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
-import br.edu.ifsp.hto.listaespera.entities.ListaEspera;
+import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
 import br.edu.ifsp.hto.listaespera.rest.ListaEsperaService;
 import br.edu.ifsp.hto.listaespera.rest.RestClient;
 import retrofit2.Call;
@@ -16,7 +16,7 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
     RestClient mRestClient;
     ListaEsperaService mListaEsperaService;
     static final String EXTRA_LISTA_ESPERA = "lista_espera";
-    ListaEspera mListaEspera;
+    ListaEsperaEntry mListaEspera;
     EditText mNomeReservaEditText, mTotalPessoasEditText;
 
     @Override
@@ -31,7 +31,7 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
 
         if(getIntent().hasExtra(EXTRA_LISTA_ESPERA)){
             Bundle extras = getIntent().getExtras();
-            mListaEspera = (ListaEspera) extras.get(EXTRA_LISTA_ESPERA);
+            mListaEspera = (ListaEsperaEntry) extras.get(EXTRA_LISTA_ESPERA);
             mTotalPessoasEditText.setText(String.valueOf(mListaEspera.getTotalPessoas()));
             mNomeReservaEditText.setText(mListaEspera.getNomeReserva());
         }

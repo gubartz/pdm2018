@@ -9,11 +9,11 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import br.edu.ifsp.hto.listaespera.entities.ListaEspera;
+import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
 
 
 public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.ListaEsperaViewHolder>{
-    private List<ListaEspera> mListaEspera;
+    private List<ListaEsperaEntry> mListaEspera;
 
     @NonNull
     @Override
@@ -27,7 +27,7 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ListaEsperaViewHolder holder, int position) {
-        ListaEspera listaEspera = mListaEspera.get(position);
+        ListaEsperaEntry listaEspera = mListaEspera.get(position);
 
         holder.bind(listaEspera);
     }
@@ -41,13 +41,13 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
         return 0;
     }
 
-    public void setListaEspera(List<ListaEspera> listaEspera){
+    public void setListaEspera(List<ListaEsperaEntry> listaEspera){
         mListaEspera = listaEspera;
         this.notifyDataSetChanged();
     }
 
     //TODO(3) Definir um método getListaEspera que retorna uma referência do atributo que mantém a list
-    public List<ListaEspera> getListaEspera() {
+    public List<ListaEsperaEntry> getListaEspera() {
         return mListaEspera;
     }
 
@@ -60,7 +60,7 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
             mTotalPessoasTextView = itemView.findViewById(R.id.t_total_pessoas);
         }
 
-        public void bind(ListaEspera listaEspera){
+        public void bind(ListaEsperaEntry listaEspera){
             mNomeReservaTextView.setText(listaEspera.getNomeReserva());
             mTotalPessoasTextView.setText(String.valueOf(listaEspera.getTotalPessoas()));
         }

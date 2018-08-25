@@ -13,7 +13,7 @@ import android.widget.ProgressBar;
 
 import java.util.List;
 
-import br.edu.ifsp.hto.listaespera.entities.ListaEspera;
+import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
 import br.edu.ifsp.hto.listaespera.rest.ListaEsperaService;
 import br.edu.ifsp.hto.listaespera.rest.RestClient;
 import br.edu.ifsp.hto.listaespera.entities.Resource;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
     RecyclerView mListaEsperaRecyclerView;
     ListaEsperaAdapter mListaEsperaAdapter;
     LinearLayout mListaEsperaView;
-    List<ListaEspera> mListaEspera;
+    List<ListaEsperaEntry> mListaEspera;
     RestClient mRestClient;
     ListaEsperaService mListaEsperaService;
 
@@ -72,12 +72,12 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
         ListaEsperaService listaEsperaService = restClient.getListaEsperaService();
 
         //TODO(6) Ajustar o código para as alterações realizadas na interface
-        Call<Resource<List<ListaEspera>>> list = listaEsperaService.list();
+        Call<Resource<List<ListaEsperaEntry>>> list = listaEsperaService.list();
 
         //TODO(7) Dentro do onResponse
-        list.enqueue(new Callback<Resource<List<ListaEspera>>>() {
+        list.enqueue(new Callback<Resource<List<ListaEsperaEntry>>>() {
             @Override
-            public void onResponse(Call<Resource<List<ListaEspera>>> call, Response<Resource<List<ListaEspera>>> response) {
+            public void onResponse(Call<Resource<List<ListaEsperaEntry>>> call, Response<Resource<List<ListaEsperaEntry>>> response) {
                 mListaEspera = response.body().data;
                 mListaEsperaAdapter.setListaEspera(mListaEspera);
                 mIndicadorCarregarProgressBar.setVisibility(View.INVISIBLE);
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
             }
 
             @Override
-            public void onFailure(Call<Resource<List<ListaEspera>>> call, Throwable t) {
+            public void onFailure(Call<Resource<List<ListaEsperaEntry>>> call, Throwable t) {
                 t.printStackTrace();
             }
         });
@@ -101,16 +101,16 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
     public void onClickBtAdicionar(View view) {
         String nomeReserva = mNomeReservaEditText.getText().toString();
         int totalReserva = Integer.parseInt(mTotalPessoasEditText.getText().toString());
-        ListaEspera listaEspera = new ListaEspera(nomeReserva, totalReserva);
+        ListaEsperaEntry listaEspera = new ListaEsperaEntry(nomeReserva, totalReserva);
         salvarListaEspera(listaEspera);
     }
 
-    private void salvarListaEspera(ListaEspera listaEspera){
-        Call<ListaEspera> add = mListaEsperaService.add(listaEspera);
-        add.enqueue(new Callback<ListaEspera>() {
+    private void salvarListaEspera(ListaEsperaEntry listaEspera){
+        Call<ListaEsperaEntry> add = mListaEsperaService.add(listaEspera);
+        add.enqueue(new Callback<ListaEsperaEntry>() {
             @Override
-            public void onResponse(Call<ListaEspera> call, Response<ListaEspera> response) {
-                ListaEspera listaEspera = response.body();
+            public void onResponse(Call<ListaEsperaEntry> call, Response<ListaEsperaEntry> response) {
+                ListaEsperaEntry listaEspera = response.body();
                 if(listaEspera != null){
                     mListaEspera.add(listaEspera);
                     mListaEsperaAdapter.setListaEspera(mListaEspera);
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
             }
 
             @Override
-            public void onFailure(Call<ListaEspera> call, Throwable t) {
+            public void onFailure(Call<ListaEsperaEntry> call, Throwable t) {
                 t.printStackTrace();
             }
         });
@@ -133,9 +133,9 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                List<ListaEspera> listaEsperaList = mListaEsperaAdapter.getListaEspera();
+                List<ListaEsperaEntry> listaEsperaList = mListaEsperaAdapter.getListaEspera();
                 int position = viewHolder.getAdapterPosition();
-                ListaEspera listaEspera = listaEsperaList.get(position);
+                ListaEsperaEntry listaEspera = listaEsperaList.get(position);
                 Call<Void> remove = mListaEsperaService.remove(listaEspera.getId());
                 remove.enqueue(new Callback<Void>() {
                     @Override
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
     }
 
     @Override
-    public void onClickItem(ListaEspera listaEspera) {
+    public void onClickItem(ListaEsperaEntry listaEspera) {
         Intent intent = new Intent(MainActivity.this, AtualizarListaEsperaActiviy.class);
 
         intent.putExtra(AtualizarListaEsperaActiviy.EXTRA_LISTA_ESPERA, listaEspera);

@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Essa Classe representa um registro de ListaEspera
  */
-public class ListaEspera {
+public class ListaEsperaEntry {
     //TODO(1) Adicionar os seguintes atributos:
         //int id
         //String nomeReserva - Utilizar anotação @SerializedName("nome_reserva")

@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 
 import java.util.List;
 
-import br.edu.ifsp.hto.listaespera.entities.ListaEspera;
+import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
 import br.edu.ifsp.hto.listaespera.rest.ListaEsperaService;
 import br.edu.ifsp.hto.listaespera.rest.RestClient;
 import retrofit2.Call;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView mListaEsperaRecyclerView;
     ListaEsperaAdapter mListaEsperaAdapter;
     LinearLayout mListaEsperaView;
-    List<ListaEspera> mListaEspera;
+    List<ListaEsperaEntry> mListaEspera;
     RestClient mRestClient;
     ListaEsperaService mListaEsperaService;
 
@@ -64,12 +64,12 @@ public class MainActivity extends AppCompatActivity {
 
         ListaEsperaService listaEsperaService = restClient.getListaEsperaService();
 
-        Call<List<ListaEspera>> list = listaEsperaService.list();
+        Call<List<ListaEsperaEntry>> list = listaEsperaService.list();
 
-        list.enqueue(new Callback<List<ListaEspera>>() {
+        list.enqueue(new Callback<List<ListaEsperaEntry>>() {
 
             @Override
-            public void onResponse(Call<List<ListaEspera>> call, Response<List<ListaEspera>> response) {
+            public void onResponse(Call<List<ListaEsperaEntry>> call, Response<List<ListaEsperaEntry>> response) {
                 mListaEspera = response.body();
                 mListaEsperaAdapter.setListaEspera(mListaEspera);
                 mIndicadorCarregarProgressBar.setVisibility(View.INVISIBLE);
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<ListaEspera>> call, Throwable t) {
+            public void onFailure(Call<List<ListaEsperaEntry>> call, Throwable t) {
                 t.printStackTrace();
             }
         });
@@ -86,16 +86,16 @@ public class MainActivity extends AppCompatActivity {
     public void onClickBtAdicionar(View view) {
         String nomeReserva = mNomeReservaEditText.getText().toString();
         int totalReserva = Integer.parseInt(mTotalPessoasEditText.getText().toString());
-        ListaEspera listaEspera = new ListaEspera(nomeReserva, totalReserva);
+        ListaEsperaEntry listaEspera = new ListaEsperaEntry(nomeReserva, totalReserva);
         salvarListaEspera(listaEspera);
     }
 
-    private void salvarListaEspera(ListaEspera listaEspera){
-        Call<ListaEspera> add = mListaEsperaService.add(listaEspera);
-        add.enqueue(new Callback<ListaEspera>() {
+    private void salvarListaEspera(ListaEsperaEntry listaEspera){
+        Call<ListaEsperaEntry> add = mListaEsperaService.add(listaEspera);
+        add.enqueue(new Callback<ListaEsperaEntry>() {
             @Override
-            public void onResponse(Call<ListaEspera> call, Response<ListaEspera> response) {
-                ListaEspera listaEspera = response.body();
+            public void onResponse(Call<ListaEsperaEntry> call, Response<ListaEsperaEntry> response) {
+                ListaEsperaEntry listaEspera = response.body();
                 if(listaEspera != null){
                     mListaEspera.add(listaEspera);
                     mListaEsperaAdapter.setListaEspera(mListaEspera);
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ListaEspera> call, Throwable t) {
+            public void onFailure(Call<ListaEsperaEntry> call, Throwable t) {
                 t.printStackTrace();
             }
         });
@@ -128,12 +128,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 //TODO(8) Recuperar a lista de esperas do adapter (método getListaEspera do passo 3)
-                List<ListaEspera> listaEsperaList = mListaEsperaAdapter.getListaEspera();
+                List<ListaEsperaEntry> listaEsperaList = mListaEsperaAdapter.getListaEspera();
                 //TODO(9) Utilizar o parâmetro ViewHolder e utilizar o getAdapterPosition
                 int position = viewHolder.getAdapterPosition();
-                //TODO(10) Recuperar o objeto ListaEspera correspondente baseado no getAdapterPosition do passo anterior
+                //TODO(10) Recuperar o objeto ListaEsperaEntry correspondente baseado no getAdapterPosition do passo anterior
                     //Atribuir para uma variável compatível
-                ListaEspera listaEspera = listaEsperaList.get(position);
+                ListaEsperaEntry listaEspera = listaEsperaList.get(position);
                 //TODO(11) Utilizar o atributo mListaEsperaService com o método remove
                     //Atribuir para uma variável compatível
                 Call<Void> remove = mListaEsperaService.remove(listaEspera.getId());

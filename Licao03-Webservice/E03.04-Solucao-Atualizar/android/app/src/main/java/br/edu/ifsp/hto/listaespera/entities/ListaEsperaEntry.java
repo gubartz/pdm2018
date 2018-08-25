@@ -11,7 +11,7 @@ import java.util.Date;
  * Essa Classe representa um registro de ListaEspera
  */
 //TODO(10) implementar a interface Parcelable e os métodos necessários
-public class ListaEspera implements Parcelable{
+public class ListaEsperaEntry implements Parcelable{
     private int id;
 
     @SerializedName("nome_reserva")
@@ -23,19 +23,19 @@ public class ListaEspera implements Parcelable{
     @SerializedName("data_cadastro")
     private Date dataCadastro;
 
-    public ListaEspera(int id, String nomeReserva, int totalPessoas, Date dataCadastro) {
+    public ListaEsperaEntry(int id, String nomeReserva, int totalPessoas, Date dataCadastro) {
         this.id = id;
         this.nomeReserva = nomeReserva;
         this.totalPessoas = totalPessoas;
         this.dataCadastro = dataCadastro;
     }
 
-    public ListaEspera(String nomeReserva, int totalPessoas) {
+    public ListaEsperaEntry(String nomeReserva, int totalPessoas) {
         this.nomeReserva = nomeReserva;
         this.totalPessoas = totalPessoas;
     }
 
-    protected ListaEspera(Parcel in) {
+    protected ListaEsperaEntry(Parcel in) {
         id = in.readInt();
         nomeReserva = in.readString();
         totalPessoas = in.readInt();
@@ -53,15 +53,15 @@ public class ListaEspera implements Parcelable{
         return 0;
     }
 
-    public static final Creator<ListaEspera> CREATOR = new Creator<ListaEspera>() {
+    public static final Creator<ListaEsperaEntry> CREATOR = new Creator<ListaEsperaEntry>() {
         @Override
-        public ListaEspera createFromParcel(Parcel in) {
-            return new ListaEspera(in);
+        public ListaEsperaEntry createFromParcel(Parcel in) {
+            return new ListaEsperaEntry(in);
         }
 
         @Override
-        public ListaEspera[] newArray(int size) {
-            return new ListaEspera[size];
+        public ListaEsperaEntry[] newArray(int size) {
+            return new ListaEsperaEntry[size];
         }
     };
 

@@ -6,6 +6,6 @@ public interface ListaEsperaService {
     String BASE_URL =
             "http://192.168.15.15:9090/";
 
-    //TODO(4) Definir um método para arota lista_espera que deverá retornar um Call de uma lista de
-        //objetos ListaEspera
+    //TODO(4) Definir um método para a rota lista_espera que deverá retornar um Call de uma lista de
+        //objetos ListaEsperaEntry
 }

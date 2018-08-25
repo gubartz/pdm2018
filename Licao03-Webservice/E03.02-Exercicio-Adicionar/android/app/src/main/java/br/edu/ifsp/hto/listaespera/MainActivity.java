@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 
 import java.util.List;
 
-import br.edu.ifsp.hto.listaespera.entities.ListaEspera;
+import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
 import br.edu.ifsp.hto.listaespera.rest.ListaEsperaService;
 import br.edu.ifsp.hto.listaespera.rest.RestClient;
 import retrofit2.Call;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView mListaEsperaRecyclerView;
     ListaEsperaAdapter mListaEsperaAdapter;
     LinearLayout mListaEsperaView;
-    //TODO(14) Definir um atributo para manter um lista de ListaEspera
+    //TODO(14) Definir um atributo para manter um lista de ListaEsperaEntry
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,21 +53,21 @@ public class MainActivity extends AppCompatActivity {
 
         ListaEsperaService listaEsperaService = restClient.getListaEsperaService();
 
-        Call<List<ListaEspera>> list = listaEsperaService.list();
+        Call<List<ListaEsperaEntry>> list = listaEsperaService.list();
 
-        list.enqueue(new Callback<List<ListaEspera>>() {
+        list.enqueue(new Callback<List<ListaEsperaEntry>>() {
 
             @Override
-            public void onResponse(Call<List<ListaEspera>> call, Response<List<ListaEspera>> response) {
+            public void onResponse(Call<List<ListaEsperaEntry>> call, Response<List<ListaEsperaEntry>> response) {
                 //TODO(15) Trocar o listaEspera pelo atributo de classe definido no passo 15
-                List<ListaEspera> listaEspera = response.body();
+                List<ListaEsperaEntry> listaEspera = response.body();
                 mListaEsperaAdapter.setListaEspera(listaEspera);
                 mIndicadorCarregarProgressBar.setVisibility(View.INVISIBLE);
                 mListaEsperaView.setVisibility(View.VISIBLE);
             }
 
             @Override
-            public void onFailure(Call<List<ListaEspera>> call, Throwable t) {
+            public void onFailure(Call<List<ListaEsperaEntry>> call, Throwable t) {
                 t.printStackTrace();
             }
         });
@@ -77,19 +77,19 @@ public class MainActivity extends AppCompatActivity {
         //Dentro do método onClickBtAdicionar
             //TODO(5) Recuperar o nome da reserva do TextView em activity_main.xml
             //TODO(6) Recuperar o total de pessoas na reserva do TextView em activity_main.xml
-            //TODO(7) Criar um objeto do tipo ListaEspera com o nome da reserva e o total de pessoas
+            //TODO(7) Criar um objeto do tipo ListaEsperaEntry com o nome da reserva e o total de pessoas
             //TODO(9) Chamar o método salvarListaEspera passando o objeto criado
-    //TODO(8) Definir um método salvarListaEspera, que recebe um ListaEspera
+    //TODO(8) Definir um método salvarListaEspera, que recebe um ListaEsperaEntry
         //Dentro de salvarListaEspera
             //TODO(10) Recuperar uma instância de RestClient
             //TODO(11) Recuperar o ListaEsperaService para uma variável compatível
-            //TODO(12) Chamar o método add com o ListaEspera definido como parâmetro do método
+            //TODO(12) Chamar o método add com o ListaEsperaEntry definido como parâmetro do método
                 //Atribuir o retorno para uma variável compatível
         //TODO(13) Chamar o método enqueue passando um Callback correspondente
             //Dentro do Callback
                 //TODO(16) Em onResponse recupere o corpo da resposta com response.body()
                     //Atribuir o retorno para uma variável compatível
                 //TODO(17) Se a resposta for diferente de nula
-                    //TODO(18) Adicionar o ListaEspera recuperado no atributo da classe que mantém a lista
+                    //TODO(18) Adicionar o ListaEsperaEntry recuperado no atributo da classe que mantém a lista
                     //TODO(19) Utilizar o método setListaEspera do Adapter para atualizar a lista
 }

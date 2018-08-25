@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 
 import java.util.List;
 
-import br.edu.ifsp.hto.listaespera.entities.ListaEspera;
+import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
 import br.edu.ifsp.hto.listaespera.rest.ListaEsperaService;
 import br.edu.ifsp.hto.listaespera.rest.RestClient;
 import retrofit2.Call;
@@ -73,16 +73,16 @@ public class MainActivity extends AppCompatActivity {
         ListaEsperaService listaEsperaService = restClient.getListaEsperaService();
 
         //TODO(41) Chamaro método list e atribuir para uma variável compatível
-        Call<List<ListaEspera>> list = listaEsperaService.list();
+        Call<List<ListaEsperaEntry>> list = listaEsperaService.list();
 
         //TODO(42) Utilizar o método enqueue passando um Callback. Implementar os métodos necessários
             //Dentro do Callback
-        list.enqueue(new Callback<List<ListaEspera>>() {
+        list.enqueue(new Callback<List<ListaEsperaEntry>>() {
 
             @Override
-            public void onResponse(Call<List<ListaEspera>> call, Response<List<ListaEspera>> response) {
+            public void onResponse(Call<List<ListaEsperaEntry>> call, Response<List<ListaEsperaEntry>> response) {
                 //TODO(43) Em onResponse recupera o corpo da mensagem com response.body(). Atribuir para uma variável compatível
-                List<ListaEspera> listaEspera = response.body();
+                List<ListaEsperaEntry> listaEspera = response.body();
                 //TODO(44) Utilizar o método setListaEspera do adapter a passar a lista recuperada
                 mListaEsperaAdapter.setListaEspera(listaEspera);
 
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<ListaEspera>> call, Throwable t) {
+            public void onFailure(Call<List<ListaEsperaEntry>> call, Throwable t) {
                 t.printStackTrace();
             }
         });

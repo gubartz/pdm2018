@@ -11,7 +11,7 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
     ListaEsperaService mListaEsperaService;
     //TODO(23) Declarar um atributo String final e static chamado EXTRA_LISTA_ESPERA
         //Definir o conteúdo como lista_espera
-    //TODO(28) Declarar um atributo do tipo ListaEspera
+    //TODO(28) Declarar um atributo do tipo ListaEsperaEntry
     //TODO(29) Declarar atributos para os EditTexts definidos no layout desta activity
 
     @Override
@@ -34,7 +34,7 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
 
     //No método onClickBtAtualizar
     //TODO(34) Recuperar os valores digitados pelo usuário
-    //TODO(35) Atualizar os valores recuperados para o atributo de classe ListaEspera
+    //TODO(35) Atualizar os valores recuperados para o atributo de classe ListaEsperaEntry
     //TODO(36) Utilizar o mListaEsperaService realizar a chamada de atualização
 
 }

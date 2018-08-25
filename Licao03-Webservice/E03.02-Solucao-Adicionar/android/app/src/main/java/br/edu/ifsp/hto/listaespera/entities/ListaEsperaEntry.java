@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Essa Classe representa um registro de ListaEspera
  */
-public class ListaEspera {
+public class ListaEsperaEntry {
     private int id;
 
     @SerializedName("nome_reserva")
@@ -19,14 +19,14 @@ public class ListaEspera {
     @SerializedName("data_cadastro")
     private Date dataCadastro;
 
-    public ListaEspera(int id, String nomeReserva, int totalPessoas, Date dataCadastro) {
+    public ListaEsperaEntry(int id, String nomeReserva, int totalPessoas, Date dataCadastro) {
         this.id = id;
         this.nomeReserva = nomeReserva;
         this.totalPessoas = totalPessoas;
         this.dataCadastro = dataCadastro;
     }
 
-    public ListaEspera(String nomeReserva, int totalPessoas) {
+    public ListaEsperaEntry(String nomeReserva, int totalPessoas) {
         this.nomeReserva = nomeReserva;
         this.totalPessoas = totalPessoas;
     }

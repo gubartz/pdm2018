@@ -9,15 +9,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import br.edu.ifsp.hto.listaespera.entities.ListaEspera;
+import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
 
 
 public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.ListaEsperaViewHolder>{
-    private List<ListaEspera> mListaEspera;
+    private List<ListaEsperaEntry> mListaEspera;
     OnItemClickListener mOnItemClickListener;
 
     interface OnItemClickListener {
-        void onClickItem(ListaEspera listaEspera);
+        void onClickItem(ListaEsperaEntry listaEspera);
     }
 
     public ListaEsperaAdapter(OnItemClickListener mOnItemClickListener) {
@@ -36,7 +36,7 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ListaEsperaViewHolder holder, int position) {
-        ListaEspera listaEspera = mListaEspera.get(position);
+        ListaEsperaEntry listaEspera = mListaEspera.get(position);
 
         holder.bind(listaEspera);
     }
@@ -50,12 +50,12 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
         return 0;
     }
 
-    public void setListaEspera(List<ListaEspera> listaEspera){
+    public void setListaEspera(List<ListaEsperaEntry> listaEspera){
         mListaEspera = listaEspera;
         this.notifyDataSetChanged();
     }
 
-    public List<ListaEspera> getListaEspera() {
+    public List<ListaEsperaEntry> getListaEspera() {
         return mListaEspera;
     }
 
@@ -70,7 +70,7 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
             itemView.setOnClickListener(this);
         }
 
-        public void bind(ListaEspera listaEspera){
+        public void bind(ListaEsperaEntry listaEspera){
             mNomeReservaTextView.setText(listaEspera.getNomeReserva());
             mTotalPessoasTextView.setText(String.valueOf(listaEspera.getTotalPessoas()));
         }
@@ -78,7 +78,7 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
         @Override
         public void onClick(View v) {
              int position = getAdapterPosition();
-             ListaEspera listaEspera = mListaEspera.get(position);
+             ListaEsperaEntry listaEspera = mListaEspera.get(position);
             mOnItemClickListener.onClickItem(listaEspera);
         }
     }

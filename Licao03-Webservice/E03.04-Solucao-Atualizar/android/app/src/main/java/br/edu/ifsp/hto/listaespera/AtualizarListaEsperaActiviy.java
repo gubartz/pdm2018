@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
-import br.edu.ifsp.hto.listaespera.entities.ListaEspera;
+import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
 import br.edu.ifsp.hto.listaespera.rest.ListaEsperaService;
 import br.edu.ifsp.hto.listaespera.rest.RestClient;
 import retrofit2.Call;
@@ -18,8 +18,8 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
     //TODO(23) Declarar um atributo String final e static chamado EXTRA_LISTA_ESPERA
         //Definir o conteúdo como lista_espera
     static final String EXTRA_LISTA_ESPERA = "lista_espera";
-    //TODO(28) Declarar um atributo do tipo ListaEspera
-    ListaEspera mListaEspera;
+    //TODO(28) Declarar um atributo do tipo ListaEsperaEntry
+    ListaEsperaEntry mListaEspera;
     //TODO(29) Declarar atributos para os EditTexts definidos no layout desta activity
     EditText mNomeReservaEditText, mTotalPessoasEditText;
 
@@ -38,7 +38,7 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
         if(getIntent().hasExtra(EXTRA_LISTA_ESPERA)){
             Bundle extras = getIntent().getExtras();
             //TODO(32) Atribuir o objeto recuperado para o atributo de classe (definido no passo 26)
-            mListaEspera = (ListaEspera) extras.get(EXTRA_LISTA_ESPERA);
+            mListaEspera = (ListaEsperaEntry) extras.get(EXTRA_LISTA_ESPERA);
 
             //TODO(33) Preencher os EditTexts com os valores recuperados
             mTotalPessoasEditText.setText(String.valueOf(mListaEspera.getTotalPessoas()));
@@ -57,7 +57,7 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
         String nomeReserva = mNomeReservaEditText.getText().toString();
         int totalPessoas = Integer.parseInt(mTotalPessoasEditText.getText().toString());
 
-        //TODO(35) Atualizar os valores recuperados para o atributo de classe ListaEspera
+        //TODO(35) Atualizar os valores recuperados para o atributo de classe ListaEsperaEntry
         mListaEspera.setNomeReserva(nomeReserva);
         mListaEspera.setTotalPessoas(totalPessoas);
 

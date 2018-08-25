@@ -9,13 +9,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import br.edu.ifsp.hto.listaespera.entities.ListaEspera;
+import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
 
 //TODO(14) Estender a classe de RecyclerView.Adapter. Utilize o ListaEsperaViewHolder no generics.
 //TODO(15) Implementar os métodos necessários
 public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.ListaEsperaViewHolder>{
-    //TODO(16) Declarar um atributo de classe para manter uma lista de objetos ListaEspera
-    private List<ListaEspera> mListaEspera;
+    //TODO(16) Declarar um atributo de classe para manter uma lista de objetos ListaEsperaEntry
+    private List<ListaEsperaEntry> mListaEspera;
 
     //TODO(17) Implementar onCreateViewHolder
         //Dentro de onCreateViewHolder
@@ -35,10 +35,10 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
         //Dentro de onBindViewHolder
     @Override
     public void onBindViewHolder(@NonNull ListaEsperaViewHolder holder, int position) {
-        //TODO(21) Recuperar o objeto ListaEspera correspondente da lista utilizando o parâmetro position
-        ListaEspera listaEspera = mListaEspera.get(position);
+        //TODO(21) Recuperar o objeto ListaEsperaEntry correspondente da lista utilizando o parâmetro position
+        ListaEsperaEntry listaEspera = mListaEspera.get(position);
 
-        //TODO(22) Chamar o método binddo objeto ListaEsperaViewHolder e passar a ListaEspera recuperada no passo 21
+        //TODO(22) Chamar o método binddo objeto ListaEsperaViewHolder e passar a ListaEsperaEntry recuperada no passo 21
         holder.bind(listaEspera);
     }
 
@@ -54,9 +54,9 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
         return 0;
     }
 
-    //TODO(25) Criar um método chamado setListaEspera, que recebe um lista de objetos ListaEspera
+    //TODO(25) Criar um método chamado setListaEspera, que recebe um lista de objetos ListaEsperaEntry
         //Dentro de setListaEspera
-    public void setListaEspera(List<ListaEspera> listaEspera){
+    public void setListaEspera(List<ListaEsperaEntry> listaEspera){
         //TODO(26) Atribuir o argumento do método ao atributo de classe
         mListaEspera = listaEspera;
         //TODO(27) Chamar o método this.notifyDataSetChanged()
@@ -78,11 +78,11 @@ public class ListaEsperaAdapter extends RecyclerView.Adapter<ListaEsperaAdapter.
             mTotalPessoasTextView = itemView.findViewById(R.id.t_total_pessoas);
         }
 
-        //TODO(12) Criar um método chamado bind, que recebe uma objeto ListaEspera
+        //TODO(12) Criar um método chamado bind, que recebe uma objeto ListaEsperaEntry
             //Dentro do método bind
-        public void bind(ListaEspera listaEspera){
+        public void bind(ListaEsperaEntry listaEspera){
             //TODO(13) Utilizar os atributos de classe com o método setText para
-                //atributos os conteúdos correspondentes que estão no objeto ListaEspera de declaro
+                //atributos os conteúdos correspondentes que estão no objeto ListaEsperaEntry de declaro
                 //como parâmetro do método bind (passo 12)
             mNomeReservaTextView.setText(listaEspera.getNomeReserva());
             mTotalPessoasTextView.setText(String.valueOf(listaEspera.getTotalPessoas()));
