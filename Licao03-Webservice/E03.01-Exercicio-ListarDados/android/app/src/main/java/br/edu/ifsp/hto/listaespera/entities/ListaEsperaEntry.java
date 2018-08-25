@@ -1,7 +1,7 @@
 package br.edu.ifsp.hto.listaespera.entities;
 
 /**
- * Essa Classe representa um registro de ListaEsperaEntry
+ * Essa Classe representa um registro de ListaEspera
  */
 public class ListaEsperaEntry {
     //TODO(1) Adicionar os seguintes atributos:
