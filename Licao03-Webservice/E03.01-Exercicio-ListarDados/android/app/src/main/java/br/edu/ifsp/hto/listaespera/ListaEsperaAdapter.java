@@ -8,8 +8,7 @@ import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
 //TODO(15) Implementar os métodos necessários
 public class ListaEsperaAdapter{
     //TODO(16) Declarar um atributo de classe para manter uma lista de objetos ListaEsperaEntry
-    private List<ListaEsperaEntry> mListaEspera;
-
+    
     //TODO(17) Implementar onCreateViewHolder
         //Dentro de onCreateViewHolder
         //TODO(18) Recuperar um LayoutInflater e inflar o lista_espera_item.xml
