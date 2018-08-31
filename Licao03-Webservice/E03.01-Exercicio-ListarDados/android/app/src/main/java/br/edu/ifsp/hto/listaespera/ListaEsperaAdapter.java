@@ -33,7 +33,7 @@ public class ListaEsperaAdapter{
         //TODO(9) Definir dois atributos para os TextViews definidos em lista_espera_item.xml
         //TODO(10) Definir um construtor
             //Dentro do construtor
-            //TODO(11) Atribur aos atributos de classe os TextViews definidos no xml
+            //TODO(11) Atribuir aos atributos de classe os TextViews definidos no xml
         //TODO(12) Criar um método chamado bind, que recebe um objeto ListaEsperaEntry
             //Dentro do método bind
             //TODO(13) Utilizar os atributos de classe com o método setText para
