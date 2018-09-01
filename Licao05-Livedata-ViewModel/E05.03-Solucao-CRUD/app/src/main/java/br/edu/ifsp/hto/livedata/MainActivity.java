@@ -62,15 +62,11 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
             @Override
             public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int i) {
                 //TODO(24) Utilizar o repository para remoção do item deslizado
-                AppExecutors.getInstance().diskIO().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        int position = viewHolder.getAdapterPosition();
-                        List<ListaEspera> listaEsperaList = mListaEsperaAdapter.getListaEspera();
-                        ListaEspera listaEspera = listaEsperaList.get(position);
-                        mListaEsperaRepository.removeListaEspera(listaEspera);
-                    }
-                });
+                int position = viewHolder.getAdapterPosition();
+                List<ListaEspera> listaEsperaList = mListaEsperaAdapter.getListaEspera();
+                ListaEspera listaEspera = listaEsperaList.get(position);
+                mListaEsperaRepository.removeListaEspera(listaEspera);
+
             }
         }).attachToRecyclerView(mListaEsperaRecyclerView);
 
