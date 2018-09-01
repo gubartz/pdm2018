@@ -5,26 +5,30 @@ import android.arch.lifecycle.LiveData;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import br.edu.ifsp.hto.viewmodel.database.AppDatabase;
+import br.edu.ifsp.hto.viewmodel.database.ListaEsperaDAO;
 import br.edu.ifsp.hto.viewmodel.entities.ListaEspera;
 import br.edu.ifsp.hto.viewmodel.utilities.AppExecutors;
 
 public class ListaEsperaRepository {
-    private AppDatabase mDb;
+    ListaEsperaDAO mListaEsperaDAO;
 
-    public ListaEsperaRepository(Application application) {
-        mDb = AppDatabase.getsInstance(application);
+    @Inject
+    public ListaEsperaRepository(ListaEsperaDAO listaEsperaDAO) {
+        mListaEsperaDAO = listaEsperaDAO;
     }
 
     public LiveData<List<ListaEspera>> getAllListaEspera(){
-        return mDb.listaEsperaDAO().loadAllListaEspera();
+        return mListaEsperaDAO.loadAllListaEspera();
     }
 
     public void addListaEspera(final ListaEspera listaEspera){
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
-                mDb.listaEsperaDAO().insertListaEspera(listaEspera);
+                mListaEsperaDAO.insertListaEspera(listaEspera);
             }
         });
     }
@@ -33,7 +37,7 @@ public class ListaEsperaRepository {
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
-                mDb.listaEsperaDAO().deleteListaEspera(listaEspera);
+                mListaEsperaDAO.deleteListaEspera(listaEspera);
             }
         });
     }
@@ -42,7 +46,7 @@ public class ListaEsperaRepository {
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
-                mDb.listaEsperaDAO().updateListaEspera(listaEspera);
+                mListaEsperaDAO.updateListaEspera(listaEspera);
             }
         });
     }

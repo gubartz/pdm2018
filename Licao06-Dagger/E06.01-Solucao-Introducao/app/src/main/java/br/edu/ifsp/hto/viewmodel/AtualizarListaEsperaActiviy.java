@@ -6,13 +6,19 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
+import javax.inject.Inject;
+
 import br.edu.ifsp.hto.viewmodel.entities.ListaEspera;
 import br.edu.ifsp.hto.viewmodel.repositories.ListaEsperaRepository;
+import dagger.android.AndroidInjection;
 
 public class AtualizarListaEsperaActiviy extends AppCompatActivity {
     static final String EXTRA_LISTA_ESPERA = "lista_espera";
     ListaEspera mListaEspera;
     EditText mNomeReservaEditText, mTotalPessoasEditText;
+
+    //TODO(22) Utilizar a annotation Inject
+    @Inject
     ListaEsperaRepository mListaEsperaRepository;
 
     @Override
@@ -20,10 +26,14 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atualizar_lista_espera_activiy);
 
+        //TODO(23) Remover a criação do ListaEsperaRepository
+        //mListaEsperaRepository = new ListaEsperaRepository(getApplication());
+
+        //TODO(24) Chamar AndroidInjection.inject(this);
+        AndroidInjection.inject(this);
+
         mNomeReservaEditText = findViewById(R.id.e_nome_reserva);
         mTotalPessoasEditText = findViewById(R.id.e_total_pessoas);
-
-        mListaEsperaRepository = new ListaEsperaRepository(getApplication());
 
         if(getIntent().hasExtra(EXTRA_LISTA_ESPERA)){
             Bundle extras = getIntent().getExtras();

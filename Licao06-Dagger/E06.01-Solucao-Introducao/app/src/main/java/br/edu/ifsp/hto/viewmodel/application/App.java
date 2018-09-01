@@ -10,7 +10,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 
-//TODO(3) Fazer essa classe estender de Application
+//TODO(3) Fazer a classe estender de Application
 //TODO(4) Implementar a interface HasActivityInjector
 public class App extends Application implements HasActivityInjector{
     //TODO(5) Utilizar a annotation @Inject
@@ -29,7 +29,7 @@ public class App extends Application implements HasActivityInjector{
         DaggerAppComponent.builder().application(this).build().inject(this);
     }
 
-    //TODO(10) Sobrescrever o método activityInjector e retornar o atributo da classe
+    //TODO(10) Sobrescrever o método activityInjector e retornar o atributo da classe DispatchingAndroidInjector
     @Override
     public AndroidInjector<Activity> activityInjector() {
         return dispatchingAndroidInjector;

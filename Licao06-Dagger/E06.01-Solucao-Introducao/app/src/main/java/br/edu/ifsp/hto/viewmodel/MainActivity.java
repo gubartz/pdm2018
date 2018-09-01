@@ -16,6 +16,8 @@ import android.widget.EditText;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import br.edu.ifsp.hto.viewmodel.adapter.ListaEsperaAdapter;
 import br.edu.ifsp.hto.viewmodel.entities.ListaEspera;
 import br.edu.ifsp.hto.viewmodel.repositories.ListaEsperaRepository;
@@ -28,16 +30,21 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
     private ListaEsperaAdapter mListaEsperaAdapter;
     private RecyclerView mListaEsperaRecyclerView;
     private EditText mNomeReservaEditText, mTotalPessoasEditText;
-    private ListaEsperaRepository mListaEsperaRepository;
 
+    //TODO(19) Adicionar a annotation Inject
+    @Inject
+    ListaEsperaRepository mListaEsperaRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //TODO(11) Chamar AndroidInjection.inject(this);
+        //TODO(12) Chamar AndroidInjection.inject(this);
         AndroidInjection.inject(this);
+
+        //TODO(20) Remover a criação do ListaEsperaRepository
+        //mListaEsperaRepository = new ListaEsperaRepository(getApplication());
 
         mListaEsperaAdapter = new ListaEsperaAdapter(this);
         mListaEsperaRecyclerView = findViewById(R.id.rv_lista_espera);
@@ -47,8 +54,6 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
         mNomeReservaEditText = findViewById(R.id.e_nome_reserva);
         mTotalPessoasEditText = findViewById(R.id.e_total_pessoas);
 
-        mListaEsperaRepository = new ListaEsperaRepository(getApplication());
-
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
@@ -57,15 +62,10 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
 
             @Override
             public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int i) {
-                 AppExecutors.getInstance().diskIO().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        int position = viewHolder.getAdapterPosition();
-                        List<ListaEspera> listaEsperaList = mListaEsperaAdapter.getListaEspera();
-                        ListaEspera listaEspera = listaEsperaList.get(position);
-                        mListaEsperaRepository.removeListaEspera(listaEspera);
-                    }
-                });
+                int position = viewHolder.getAdapterPosition();
+                List<ListaEspera> listaEsperaList = mListaEsperaAdapter.getListaEspera();
+                ListaEspera listaEspera = listaEsperaList.get(position);
+                mListaEsperaRepository.removeListaEspera(listaEspera);
             }
         }).attachToRecyclerView(mListaEsperaRecyclerView);
 
@@ -73,7 +73,9 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
     }
 
     void setupViewModel(){
-        MainViewModelFactory modelFactory = new MainViewModelFactory(getApplication());
+        //TODO(21) Ajustar o código para a nova classe MainViewModelFactory
+        //MainViewModelFactory modelFactory = new MainViewModelFactory(getApplication());
+        MainViewModelFactory modelFactory = new MainViewModelFactory(mListaEsperaRepository);
 
         MainActivityViewModel viewModel = ViewModelProviders.of(this, modelFactory).get(MainActivityViewModel.class);
 
@@ -83,8 +85,6 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
                 mListaEsperaAdapter.setListaEspera(listaEsperas);
             }
         });
-
-
     }
 
     public void onClickBtAdicionar(View view) {
