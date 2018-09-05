@@ -16,14 +16,11 @@ import android.widget.EditText;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import br.edu.ifsp.hto.viewmodel.adapter.ListaEsperaAdapter;
 import br.edu.ifsp.hto.viewmodel.entities.ListaEspera;
 import br.edu.ifsp.hto.viewmodel.repositories.ListaEsperaRepository;
 import br.edu.ifsp.hto.viewmodel.viewmodel.MainActivityViewModel;
 import br.edu.ifsp.hto.viewmodel.viewmodel.MainViewModelFactory;
-import dagger.android.AndroidInjection;
 
 public class MainActivity extends AppCompatActivity implements ListaEsperaAdapter.OnItemClickListener{
     private ListaEsperaAdapter mListaEsperaAdapter;
@@ -31,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
     private EditText mNomeReservaEditText, mTotalPessoasEditText;
 
     //TODO(25) Adicionar a annotation Inject
-    @Inject
     ListaEsperaRepository mListaEsperaRepository;
 
     @Override
@@ -40,10 +36,9 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
         setContentView(R.layout.activity_main);
 
         //TODO(12) Chamar AndroidInjection.inject(this);
-        AndroidInjection.inject(this);
 
         //TODO(26) Remover a criação do ListaEsperaRepository
-        //mListaEsperaRepository = new ListaEsperaRepository(getApplication());
+        mListaEsperaRepository = new ListaEsperaRepository(getApplication());
 
         mListaEsperaAdapter = new ListaEsperaAdapter(this);
         mListaEsperaRecyclerView = findViewById(R.id.rv_lista_espera);
@@ -73,8 +68,7 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
 
     void setupViewModel(){
         //TODO(27) Ajustar o código para a nova classe MainViewModelFactory
-        //MainViewModelFactory modelFactory = new MainViewModelFactory(getApplication());
-        MainViewModelFactory modelFactory = new MainViewModelFactory(mListaEsperaRepository);
+        MainViewModelFactory modelFactory = new MainViewModelFactory(getApplication());
 
         MainActivityViewModel viewModel = ViewModelProviders.of(this, modelFactory).get(MainActivityViewModel.class);
 

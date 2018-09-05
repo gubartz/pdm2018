@@ -1,5 +1,6 @@
 package br.edu.ifsp.hto.viewmodel.viewmodel;
 
+import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 
@@ -12,14 +13,11 @@ public class MainActivityViewModel extends ViewModel {
     ListaEsperaRepository listaEsperaRepository;
 
     //TODO(17) Remover o construtor
-//    public MainActivityViewModel(Application application) {
-//        this.listaEsperaRepository = new ListaEsperaRepository(application);
-//    }
+    public MainActivityViewModel(Application application) {
+        this.listaEsperaRepository = new ListaEsperaRepository(application);
+    }
 
     //TODO(18) Criar um construtor que recebe um ListaEsperaRepository e atribua para o atributo de classe
-    public MainActivityViewModel(ListaEsperaRepository listaEsperaRepository) {
-        this.listaEsperaRepository = listaEsperaRepository;
-    }
 
     public LiveData<List<ListaEspera>> getListaEspera(){
         return listaEsperaRepository.getAllListaEspera();
