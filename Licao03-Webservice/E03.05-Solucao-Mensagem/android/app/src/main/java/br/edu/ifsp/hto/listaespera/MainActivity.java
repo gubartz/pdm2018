@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
         mListaEsperaAdapter = new ListaEsperaAdapter(this);
 
         mListaEsperaRecyclerView.setAdapter(mListaEsperaAdapter);
+        mListaEspera = new ArrayList<>();
         configurarWebservice();
 
         configurarRemocao();

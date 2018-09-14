@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         mListaEsperaRecyclerView.setAdapter(mListaEsperaAdapter);
 
+        //TODO(15) Inicializar o atributo de classe definido no passo 14 com um ArrayList
+
         carregarDados();
     }
 
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<List<ListaEsperaEntry>> call, Response<List<ListaEsperaEntry>> response) {
-                //TODO(15) Trocar o listaEspera pelo atributo de classe definido no passo 15
+                //TODO(16) Trocar o listaEspera pelo atributo de classe definido no passo 15
                 List<ListaEsperaEntry> listaEspera = response.body();
                 mListaEsperaAdapter.setListaEspera(listaEspera);
                 mIndicadorCarregarProgressBar.setVisibility(View.INVISIBLE);
@@ -87,9 +89,9 @@ public class MainActivity extends AppCompatActivity {
                 //Atribuir o retorno para uma variável compatível
         //TODO(13) Chamar o método enqueue passando um Callback correspondente
             //Dentro do Callback
-                //TODO(16) Em onResponse recupere o corpo da resposta com response.body()
+                //TODO(17) Em onResponse recupere o corpo da resposta com response.body()
                     //Atribuir o retorno para uma variável compatível
-                //TODO(17) Se a resposta for diferente de nula
-                    //TODO(18) Adicionar o ListaEsperaEntry recuperado no atributo da classe que mantém a lista
-                    //TODO(19) Utilizar o método setListaEspera do Adapter para atualizar a lista
+                //TODO(18) Se a resposta for diferente de nula
+                    //TODO(19) Adicionar o ListaEsperaEntry recuperado no atributo da classe que mantém a lista
+                    //TODO(20) Utilizar o método setListaEspera do Adapter para atualizar a lista
 }

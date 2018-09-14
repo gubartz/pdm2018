@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ifsp.hto.listaespera.entities.ListaEsperaEntry;
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
         mListaEsperaRecyclerView.setAdapter(mListaEsperaAdapter);
 
+        //TODO(15) Inicializar o atributo de classe definido no passo 14 com um ArrayList
+        mListaEspera = new ArrayList<>();
+
         carregarDados();
     }
 
@@ -60,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<List<ListaEsperaEntry>> call, Response<List<ListaEsperaEntry>> response) {
-                //TODO(15) Trocar o listaEspera pelo atributo de classe definido no passo 15
+                //TODO(16) Trocar o listaEspera pelo atributo de classe definido no passo 15
                 mListaEspera = response.body();
                 mListaEsperaAdapter.setListaEspera(mListaEspera);
                 mIndicadorCarregarProgressBar.setVisibility(View.INVISIBLE);
@@ -105,14 +109,14 @@ public class MainActivity extends AppCompatActivity {
         add.enqueue(new Callback<ListaEsperaEntry>() {
             @Override
             public void onResponse(Call<ListaEsperaEntry> call, Response<ListaEsperaEntry> response) {
-                //TODO(16) Em onResponse recupere o corpo da resposta com response.body()
+                //TODO(17) Em onResponse recupere o corpo da resposta com response.body()
                     //Atribuir o retorno para uma variável compatível
                 ListaEsperaEntry listaEspera = response.body();
-                //TODO(17) Se a resposta for diferente de nula
+                //TODO(18) Se a resposta for diferente de nula
                 if(listaEspera != null){
-                    //TODO(18) Adicionar o ListaEsperaEntry recuperado no atributo da classe que mantém a lista
+                    //TODO(19) Adicionar o ListaEsperaEntry recuperado no atributo da classe que mantém a lista
                     mListaEspera.add(listaEspera);
-                    //TODO(19) Utilizar o método setListaEspera do Adapter para atualizar a lista
+                    //TODO(20) Utilizar o método setListaEspera do Adapter para atualizar a lista
                     mListaEsperaAdapter.setListaEspera(mListaEspera);
                 }
             }
