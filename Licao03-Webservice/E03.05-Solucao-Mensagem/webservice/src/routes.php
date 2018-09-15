@@ -69,14 +69,11 @@ $app->delete('/lista_espera/{id}', function ($request, $response, $args) {
 	return $response->withStatus(200);
 });
 
-//TODO(2) Definir uma rota PUT
-$app->put('/lista_espera', function ($request, $response) {
+$app->put('/lista_espera/{id}', function ($request, $response, $args) {
 	$db = $this->db;
 
-	//TODO(3) Recuperar o corpo do request com getParsedBody
 	$listaEspera = $request->getParsedBody();
 
-	//TODO(4) Definir um SQL para atualizar a lista de espera
 	$sth = $db->prepare('UPDATE lista_espera 
 											    SET nome_reserva = ?
 											      , total_pessoas = ?
@@ -84,9 +81,8 @@ $app->put('/lista_espera', function ($request, $response) {
 
 	$listaEsperaDB[] = $listaEspera['nome_reserva'];
 	$listaEsperaDB[] = $listaEspera['total_pessoas'];
-	$listaEsperaDB[] = $listaEspera['id'];
+	$listaEsperaDB[] = $args['id'];
 
-	//TODO(5) Executar o SQL e retornar o código 404 em caso de erro e 200 em caso de sucesso
 	try{
 		$sth->execute($listaEsperaDB);
 	}catch(PDOException $e){

@@ -28,6 +28,6 @@ public interface ListaEsperaService {
     @DELETE("lista_espera/{id}")
     Call<Void> remove(@Path("id") int id);
 
-    @PUT("lista_espera")
-    Call<Void> update(@Body ListaEsperaEntry listaEspera);
+    @PUT("lista_espera/{id}")
+    Call<Void> update(@Body ListaEsperaEntry listaEspera, @Path("id") int id);
 }

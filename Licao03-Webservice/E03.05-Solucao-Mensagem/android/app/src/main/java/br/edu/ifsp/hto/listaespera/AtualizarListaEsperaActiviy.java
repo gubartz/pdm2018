@@ -50,7 +50,7 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
         mListaEspera.setNomeReserva(nomeReserva);
         mListaEspera.setTotalPessoas(totalPessoas);
 
-        Call<Void> update = mListaEsperaService.update(mListaEspera);
+        Call<Void> update = mListaEsperaService.update(mListaEspera, mListaEspera.getId());
 
         update.enqueue(new Callback<Void>() {
             @Override

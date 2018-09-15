@@ -27,6 +27,7 @@ public interface ListaEsperaService {
 
     //TODO(8) Definir uma rota para PUT
     //TODO(9) Definir um método update que recebe um ListaEsperaEntry e retorna void. Utilizar a annotation Body no parâmetro
+    //e um Path para o id
     @PUT("lista_espera/{id}")
     Call<Void> update(@Body ListaEsperaEntry listaEspera, @Path("id") int id);
 }
