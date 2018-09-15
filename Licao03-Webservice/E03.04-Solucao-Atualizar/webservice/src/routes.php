@@ -62,7 +62,7 @@ $app->delete('/lista_espera/{id}', function ($request, $response, $args) {
 });
 
 //TODO(2) Definir uma rota PUT
-$app->put('/lista_espera', function ($request, $response) {
+$app->put('/lista_espera/{id}', function ($request, $response, $args) {
 	$db = $this->db;
 
 	//TODO(3) Recuperar o corpo do request com getParsedBody
@@ -76,7 +76,7 @@ $app->put('/lista_espera', function ($request, $response) {
 
 	$listaEsperaDB[] = $listaEspera['nome_reserva'];
 	$listaEsperaDB[] = $listaEspera['total_pessoas'];
-	$listaEsperaDB[] = $listaEspera['id'];
+	$listaEsperaDB[] = $args['id'];
 
 	//TODO(5) Executar o SQL e retornar o código 404 em caso de erro e 200 em caso de sucesso
 	try{
