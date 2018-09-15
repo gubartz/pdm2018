@@ -14,8 +14,7 @@ import retrofit2.http.Path;
 
 
 public interface ListaEsperaService {
-    String BASE_URL =
-            "http://192.168.15.15:9090/";
+    String BASE_URL = "http://192.168.15.15:9090/";
 
     @GET("lista_espera")
     Call<List<ListaEsperaEntry>> list();
@@ -28,6 +27,6 @@ public interface ListaEsperaService {
 
     //TODO(8) Definir uma rota para PUT
     //TODO(9) Definir um método update que recebe um ListaEsperaEntry e retorna void. Utilizar a annotation Body no parâmetro
-    @PUT("lista_espera")
-    Call<Void> update(@Body ListaEsperaEntry listaEspera);
+    @PUT("lista_espera/{id}")
+    Call<Void> update(@Body ListaEsperaEntry listaEspera, @Path("id") int id);
 }

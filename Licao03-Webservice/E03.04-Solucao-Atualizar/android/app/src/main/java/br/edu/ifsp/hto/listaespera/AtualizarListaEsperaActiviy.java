@@ -62,7 +62,7 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
         mListaEspera.setTotalPessoas(totalPessoas);
 
         //TODO(36) Utilizar o mListaEsperaService realizar a chamada de atualização
-        Call<Void> update = mListaEsperaService.update(mListaEspera);
+        Call<Void> update = mListaEsperaService.update(mListaEspera, mListaEspera.getId());
 
         update.enqueue(new Callback<Void>() {
             @Override
