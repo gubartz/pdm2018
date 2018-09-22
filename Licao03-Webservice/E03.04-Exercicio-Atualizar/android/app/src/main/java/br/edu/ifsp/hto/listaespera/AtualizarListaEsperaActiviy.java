@@ -36,5 +36,6 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
     //TODO(34) Recuperar os valores digitados pelo usuário
     //TODO(35) Atualizar os valores recuperados para o atributo de classe ListaEsperaEntry
     //TODO(36) Utilizar o mListaEsperaService realizar a chamada de atualização
+    //TODO(37) Chamar o método finish no método onResponse
 
 }

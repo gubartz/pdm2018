@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         configurarWebservice();
 
         configurarRemocao();
+        //TODO(39) Remover a chamada ao método abaixo
         carregarDados();
     }
 
