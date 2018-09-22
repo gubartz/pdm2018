@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
         configurarWebservice();
 
         configurarRemocao();
-        carregarDados();
+        //TODO(39) Remover a chamada ao método abaixo
+        //carregarDados();
     }
 
     //TODO(38) Sobrescrever o método onResume e chamar o método carregarDados

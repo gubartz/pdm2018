@@ -67,7 +67,7 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
         update.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                //TODO(37) Chamar o método finish
+                //TODO(37) Chamar o método finish no método onResponse
                 finish();
             }
 
