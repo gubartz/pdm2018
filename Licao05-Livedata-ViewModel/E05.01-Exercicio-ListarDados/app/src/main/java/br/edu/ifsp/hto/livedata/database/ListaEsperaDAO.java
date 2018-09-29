@@ -13,7 +13,6 @@ import java.util.List;
 import br.edu.ifsp.hto.livedata.entities.ListaEspera;
 
 //TODO(8) Utilizar a annotation Dao
-@Dao
 public interface ListaEsperaDAO {
 
     //TODO(9) Definir um método chamado loadAllListaEspera, que retorna uma LiveData de lista de ListaEspera
