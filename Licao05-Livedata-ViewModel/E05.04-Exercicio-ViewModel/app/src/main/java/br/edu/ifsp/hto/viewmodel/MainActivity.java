@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
     private ListaEsperaAdapter mListaEsperaAdapter;
     private RecyclerView mListaEsperaRecyclerView;
     private EditText mNomeReservaEditText, mTotalPessoasEditText;
+    //TODO(32) O atributo do repository não é mais necessário
     private ListaEsperaRepository mListaEsperaRepository;
-
+    //TODO(7) Criar um atributo do tipo MainActivityViewModel
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
         mNomeReservaEditText = findViewById(R.id.e_nome_reserva);
         mTotalPessoasEditText = findViewById(R.id.e_total_pessoas);
 
-        mListaEsperaRepository = new ListaEsperaRepository(getApplication());
+        //TODO(30) Remover o código abaixo
+        //mListaEsperaRepository = new ListaEsperaRepository(getApplication());
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -51,23 +53,24 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
 
             @Override
             public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int i) {
-                 AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                AppExecutors.getInstance().diskIO().execute(new Runnable() {
                     @Override
                     public void run() {
                         int position = viewHolder.getAdapterPosition();
                         List<ListaEspera> listaEsperaList = mListaEsperaAdapter.getListaEspera();
                         ListaEspera listaEspera = listaEsperaList.get(position);
+                        //TODO(31) Utilizar o viewModel para a remoção
                         mListaEsperaRepository.removeListaEspera(listaEspera);
                     }
                 });
             }
         }).attachToRecyclerView(mListaEsperaRecyclerView);
 
-        //TODO(12) Trocar o método carregarListaEspera por setupViewModel
+        //TODO(13) Trocar o método carregarListaEspera por setupViewModel
         carregarListaEspera();
     }
 
-    //TODO(13) O método carregarListaEspera não é mais necessário
+    //TODO(14) O método carregarListaEspera não é mais necessário
     private void carregarListaEspera(){
         LiveData<List<ListaEspera>> listLiveData = mListaEsperaRepository.getAllListaEspera();
 
@@ -79,15 +82,14 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
         });
     }
 
-    //TODO(7) Criar um método chamado setupViewModel
+    //TODO(8) Criar um método chamado setupViewModel
         //Dentro de setupViewModel
-        //TODO(8) Instanciar um objeto MainViewModelFactory
-
-        //TODO(9) Utilizar ViewModelProviders.of(activity, factory) para instanciar o um MainActivityViewModel
-
-        //TODO(10) Chamar o método getListaEspera e observe
+        //TODO(9) Instanciar um objeto ViewModelFactory
+        //TODO(10) Utilizar ViewModelProviders.of(activity, factory) para instanciar o um MainActivityViewModel
+        //e atribur para o atributo de classe
+        //TODO(11) Chamar o método getListaEspera e observe
             //Dentro do método onChanged
-                //TODO(11) Atualizar a lista do adapter
+            //TODO(12) Atualizar a lista do adapter
 
     public void onClickBtAdicionar(View view) {
         String nomeReserva = mNomeReservaEditText.getText().toString();
@@ -98,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
         }
 
         ListaEspera listaEspera = new ListaEspera(nomeReserva, Integer.parseInt(totalPessoas));
+        //TODO(32) Utilizar o viewModel para a inserção
         mListaEsperaRepository.addListaEspera(listaEspera);
     }
 

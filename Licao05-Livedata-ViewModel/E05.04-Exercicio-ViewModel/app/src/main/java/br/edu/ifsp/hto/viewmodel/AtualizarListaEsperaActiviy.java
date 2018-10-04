@@ -13,7 +13,9 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
     static final String EXTRA_LISTA_ESPERA = "lista_espera";
     ListaEspera mListaEspera;
     EditText mNomeReservaEditText, mTotalPessoasEditText;
+    //TODO(17) Remover o atributo abaixo
     ListaEsperaRepository mListaEsperaRepository;
+    //TODO(18) Declarar um atributo para um AtualizarListaEsperaViewModel
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
         mNomeReservaEditText = findViewById(R.id.e_nome_reserva);
         mTotalPessoasEditText = findViewById(R.id.e_total_pessoas);
 
+        //TODO(19) Remover o código abaixo
         mListaEsperaRepository = new ListaEsperaRepository(getApplication());
 
         if(getIntent().hasExtra(EXTRA_LISTA_ESPERA)){
@@ -32,7 +35,16 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
             mTotalPessoasEditText.setText(String.valueOf(mListaEspera.getTotalPessoas()));
             mNomeReservaEditText.setText(mListaEspera.getNomeReserva());
         }
+
+        //TODO(25) Chamar o método setupViewModel
     }
+
+    //TODO(20) Criar um método chamado setupViewModel
+        //Dentro de setupViewModel
+        //TODO(21) Instanciar um objeto ViewModelFactory
+        //TODO(22) Utilizar ViewModelProviders.of(activity, factory) para instanciar um AtualizarListaEsperaViewModel
+        //e atribuir a referência para o atributo de classe do passo 19
+
 
     public void onClickBtAtualizar(View view) {
         String nomeReserva = mNomeReservaEditText.getText().toString();
@@ -46,7 +58,9 @@ public class AtualizarListaEsperaActiviy extends AppCompatActivity {
                 nomeReserva,
                 Integer.parseInt(totalPessoas),
                 mListaEspera.getDataCadastro());
+        //TODO(23) Remover o código abaixo
         mListaEsperaRepository.updateListaEspera(listaEspera);
+        //TODO(24) Utilizar o viewModel para atualizar a lista de espera
 
         finish();
     }

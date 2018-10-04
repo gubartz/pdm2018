@@ -5,10 +5,10 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 
-public class MainViewModelFactory implements ViewModelProvider.Factory{
+public class ViewModelFactory implements ViewModelProvider.Factory{
     private Application application;
 
-    public MainViewModelFactory(Application application) {
+    public ViewModelFactory(Application application) {
         this.application = application;
     }
 
@@ -17,6 +17,8 @@ public class MainViewModelFactory implements ViewModelProvider.Factory{
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if (modelClass.isAssignableFrom(MainActivityViewModel.class)) {
             return (T) new MainActivityViewModel(this.application);
+        }else if (modelClass.isAssignableFrom(AtualizarListaEsperaViewModel.class)) {
+            return (T) new AtualizarListaEsperaViewModel(this.application);
         }
         throw new IllegalArgumentException("Unknown ViewModel class");
     }

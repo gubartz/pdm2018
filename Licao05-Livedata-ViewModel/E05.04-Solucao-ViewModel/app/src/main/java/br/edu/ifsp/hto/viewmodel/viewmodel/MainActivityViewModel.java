@@ -27,4 +27,17 @@ public class MainActivityViewModel extends ViewModel {
         //TODO(6) Retornar um LiveData de List<ListaEspera> do ListaEsperaRepository
         return listaEsperaRepository.getAllListaEspera();
     }
+
+    //TODO(26) Criar um método chamado addListaEspera que recebe um ListaEspera
+    public void addListaEspera(ListaEspera listaEspera){
+        //TODO(27) Utilizar o repository para inserir na lista de espera
+        listaEsperaRepository.addListaEspera(listaEspera);
+    }
+
+    //TODO(28) Criar um método chamado removeListaEspera recebe um ListaEspera
+    public void removeListaEspera(ListaEspera listaEspera){
+        //TODO(29) Utilizar o repositoy para remover da lista de espera
+        listaEsperaRepository.removeListaEspera(listaEspera);
+    }
+
 }
