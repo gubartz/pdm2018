@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //TODO(19) Atribuir uma instância de AppDatabase para o atributo de classe
-        mDb = AppDatabase.getsInstance(getApplicationContext());
+        mDb = AppDatabase.getInstance(getApplicationContext());
 
         //TODO(24) Tirar o comentário do código abaixo
         loadInitialData();

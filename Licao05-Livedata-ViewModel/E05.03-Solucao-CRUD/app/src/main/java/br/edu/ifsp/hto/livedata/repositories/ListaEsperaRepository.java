@@ -2,10 +2,6 @@ package br.edu.ifsp.hto.livedata.repositories;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MediatorLiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
-import android.support.annotation.Nullable;
 
 import java.util.List;
 
@@ -17,7 +13,7 @@ public class ListaEsperaRepository {
     private AppDatabase mDb;
 
     public ListaEsperaRepository(Application application) {
-        mDb = AppDatabase.getsInstance(application);
+        mDb = AppDatabase.getInstance(application);
     }
 
     public LiveData<List<ListaEspera>> getAllListaEspera(){

@@ -13,7 +13,6 @@ import java.util.List;
 import br.edu.ifsp.hto.livedata.adapter.ListaEsperaAdapter;
 import br.edu.ifsp.hto.livedata.database.AppDatabase;
 import br.edu.ifsp.hto.livedata.entities.ListaEspera;
-import br.edu.ifsp.hto.livedata.repositories.ListaEsperaRepository;
 import br.edu.ifsp.hto.livedata.utilities.AppExecutors;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         mListaEsperaRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mListaEsperaRecyclerView.setAdapter(mListaEsperaAdapter);
 
-        mDb = AppDatabase.getsInstance(getApplicationContext());
+        mDb = AppDatabase.getInstance(getApplicationContext());
 
         loadInitialData();
 

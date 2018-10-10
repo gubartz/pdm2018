@@ -13,7 +13,7 @@ public class ListaEsperaRepository {
     private AppDatabase mDb;
 
     public ListaEsperaRepository(Application application) {
-        mDb = AppDatabase.getsInstance(application);
+        mDb = AppDatabase.getInstance(application);
     }
 
     public LiveData<List<ListaEspera>> getAllListaEspera(){

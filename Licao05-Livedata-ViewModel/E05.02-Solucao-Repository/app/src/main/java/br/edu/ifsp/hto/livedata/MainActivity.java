@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mListaEsperaRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mListaEsperaRecyclerView.setAdapter(mListaEsperaAdapter);
 
-        mDb = AppDatabase.getsInstance(getApplicationContext());
+        mDb = AppDatabase.getInstance(getApplicationContext());
 
         loadInitialData();
 

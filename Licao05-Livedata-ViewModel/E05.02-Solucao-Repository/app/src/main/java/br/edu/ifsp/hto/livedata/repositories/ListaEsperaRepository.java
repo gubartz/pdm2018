@@ -16,7 +16,7 @@ public class ListaEsperaRepository {
         //Dentro do construtor
     public ListaEsperaRepository(Application application) {
         //TODO(3) Inicializar o atributo do passo 1 recuperando uma instância de AppDatabase
-        mDb = AppDatabase.getsInstance(application);
+        mDb = AppDatabase.getInstance(application);
     }
 
     //TODO(4) Definir um metódo getAllListaEspera que retorna um LiveData de uma lista de objetos ListaEspera
