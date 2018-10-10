@@ -14,7 +14,7 @@ public class RoomModule {
     @Singleton
     @Provides
     public AppDatabase providesAppDatabase(Application application) {
-        return AppDatabase.getsInstance(application);
+        return AppDatabase.getInstance(application);
     }
 
     @Singleton

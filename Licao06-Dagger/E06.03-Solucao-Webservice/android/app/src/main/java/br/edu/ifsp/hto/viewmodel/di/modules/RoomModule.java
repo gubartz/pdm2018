@@ -6,7 +6,6 @@ import javax.inject.Singleton;
 
 import br.edu.ifsp.hto.viewmodel.database.AppDatabase;
 import br.edu.ifsp.hto.viewmodel.database.ListaEsperaDAO;
-import br.edu.ifsp.hto.viewmodel.repositories.ListaEsperaRepository;
 import dagger.Module;
 import dagger.Provides;
 
@@ -15,7 +14,7 @@ public class RoomModule {
     @Singleton
     @Provides
     public AppDatabase providesAppDatabase(Application application) {
-        return AppDatabase.getsInstance(application);
+        return AppDatabase.getInstance(application);
     }
 
     @Singleton

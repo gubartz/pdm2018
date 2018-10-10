@@ -17,7 +17,7 @@ public class ListaEsperaRepository {
     //TODO(22) Utilizar a annotation Inject no construtor
     //TODO(23) Atribuir o parâmetro do construtor para o atributo de classe
     public ListaEsperaRepository(Application application) {
-        mDb = AppDatabase.getsInstance(application);
+        mDb = AppDatabase.getInstance(application);
     }
 
     //TODO(24) Trocar todos os métodos para usar o atributo de classe ListaEsperaDAO
