@@ -24,14 +24,13 @@ import br.edu.ifsp.hto.livedata.repositories.ListaEsperaRepository;
 import br.edu.ifsp.hto.livedata.utilities.AppExecutors;
 
 public class MainActivity extends AppCompatActivity implements ListaEsperaAdapter.OnItemClickListener{
+    //TODO(26) Remover o atributo mDb pois não será mais utilizado
+    private AppDatabase mDb;
     private ListaEsperaAdapter mListaEsperaAdapter;
     private RecyclerView mListaEsperaRecyclerView;
     //TODO(12) Definir atributos para os EditTexts do XML
-    private EditText mNomeReservaEditText, mTotalPessoasEditText;
 
     //TODO(9) Definir um atributo para o ListaEsperaRepository
-    private ListaEsperaRepository mListaEsperaRepository;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +42,15 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
         mListaEsperaRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mListaEsperaRecyclerView.setAdapter(mListaEsperaAdapter);
 
+        //TODO(25) Remover o código abaixo
+        mDb = AppDatabase.getInstance(getApplicationContext());
+
         //TODO(13) Recuperar as referências do XML para os atributos de classe (EditTexts)
-        mNomeReservaEditText = findViewById(R.id.e_nome_reserva);
-        mTotalPessoasEditText = findViewById(R.id.e_total_pessoas);
 
         //TODO(7) O método loadInitialData não é mais necessário
-        //loadInitialData();
+        loadInitialData();
 
         //TODO(10) Instanciar um ListaEsperaRepository e atribuí-lo ao atributo de classe correspondente
-        mListaEsperaRepository = new ListaEsperaRepository(getApplication());
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -70,8 +69,8 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
 
     private void carregarListaEspera(){
         //TODO(11) Ajustar o código abaixo para usar o atributo de classe ListaEsperaRepository
-            //LiveData<List<ListaEspera>> listLiveData = new ListaEsperaRepository(getApplication()).getAllListaEspera();
-        LiveData<List<ListaEspera>> listLiveData = mListaEsperaRepository.getAllListaEspera();
+        LiveData<List<ListaEspera>> listLiveData = new ListaEsperaRepository(getApplication()).getAllListaEspera();
+
 
         listLiveData.observe(this, new Observer<List<ListaEspera>>() {
             @Override
@@ -99,14 +98,13 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
     }
 
     //TODO(8) O método loadInitialData não é mais necessário
-//    private void loadInitialData(){
-//        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-//            @Override
-//            public void run() {
-//                mDb.listaEsperaDAO().clearTable();
-//                mDb.listaEsperaDAO().insertListaEspera(ListaEspera.populateData());
-//            }
-//        });
-//    }
-
+    private void loadInitialData(){
+        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+            @Override
+            public void run() {
+                mDb.listaEsperaDAO().clearTable();
+                mDb.listaEsperaDAO().insertListaEspera(ListaEspera.populateData());
+            }
+        });
+    }
 }

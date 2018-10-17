@@ -24,6 +24,8 @@ import br.edu.ifsp.hto.livedata.repositories.ListaEsperaRepository;
 import br.edu.ifsp.hto.livedata.utilities.AppExecutors;
 
 public class MainActivity extends AppCompatActivity implements ListaEsperaAdapter.OnItemClickListener{
+    //TODO(26) Remover o atributo mDb pois não será mais utilizado
+    //private AppDatabase mDb;
     private ListaEsperaAdapter mListaEsperaAdapter;
     private RecyclerView mListaEsperaRecyclerView;
     //TODO(12) Definir atributos para os EditTexts do XML
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
         mListaEsperaRecyclerView = findViewById(R.id.rv_lista_espera);
         mListaEsperaRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mListaEsperaRecyclerView.setAdapter(mListaEsperaAdapter);
+
+        //TODO(25) Remover o código abaixo
+        //mDb = AppDatabase.getInstance(getApplicationContext());
 
         //TODO(13) Recuperar as referências do XML para os atributos de classe (EditTexts)
         mNomeReservaEditText = findViewById(R.id.e_nome_reserva);
@@ -122,5 +127,4 @@ public class MainActivity extends AppCompatActivity implements ListaEsperaAdapte
 //            }
 //        });
 //    }
-
 }
