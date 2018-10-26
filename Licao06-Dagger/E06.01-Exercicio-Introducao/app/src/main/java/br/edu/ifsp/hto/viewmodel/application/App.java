@@ -11,8 +11,6 @@ import dagger.android.DispatchingAndroidInjector;
 public class App{
     //TODO(5) Utilizar a annotation @Inject
     //TODO(6) Declarar um atributo para DispatchingAndroidInjector<Activity>
-    @Inject
-    DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
 
     //TODO(7) Fazer o rebuild do projeto
     //TODO(8) Sobrescrever o método onCreate

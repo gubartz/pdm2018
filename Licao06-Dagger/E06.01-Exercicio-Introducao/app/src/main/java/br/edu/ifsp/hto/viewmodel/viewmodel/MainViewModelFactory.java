@@ -16,7 +16,7 @@ public class MainViewModelFactory implements ViewModelProvider.Factory{
         this.application = application;
     }
 
-    //TODO(16) Criar um construtor que recebe um ListaEsperaRepository e o atribua para o atributo da classse
+    //TODO(16) Definir um construtor que recebe um ListaEsperaRepository e o atribua para o atributo da classse
 
     @SuppressWarnings("unchecked")
     @NonNull

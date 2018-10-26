@@ -17,7 +17,7 @@ public class MainActivityViewModel extends ViewModel {
         this.listaEsperaRepository = new ListaEsperaRepository(application);
     }
 
-    //TODO(18) Criar um construtor que recebe um ListaEsperaRepository e atribua para o atributo de classe
+    //TODO(18) Definir um construtor que recebe um ListaEsperaRepository e atribua para o atributo de classe
 
     public LiveData<List<ListaEspera>> getListaEspera(){
         return listaEsperaRepository.getAllListaEspera();
