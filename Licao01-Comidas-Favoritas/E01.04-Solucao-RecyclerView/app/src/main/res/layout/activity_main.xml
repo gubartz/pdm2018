@@ -9,7 +9,7 @@
     <!--TODO(2) Adicionar um RecyclerView-->
     <!--TODO(3) Width como match_parent e height como wrap_content-->
     <!--TODO(4) Colocar um id rv_lista-->
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_lista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

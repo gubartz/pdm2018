@@ -1,7 +1,7 @@
 package br.edu.ifsp.hto.comidasfavoritas;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     //TODO(22) Definir um atributo de classe do tipo RecyclerView
