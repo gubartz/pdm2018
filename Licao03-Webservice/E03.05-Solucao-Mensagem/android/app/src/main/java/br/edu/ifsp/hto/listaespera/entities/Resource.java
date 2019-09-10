@@ -1,6 +1,6 @@
 package br.edu.ifsp.hto.listaespera.entities;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 //TODO(1) Colocar um generic T na declaração da classe
 public class Resource<T> {

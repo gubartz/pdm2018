@@ -1,7 +1,7 @@
 package br.edu.ifsp.hto.listaespera;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     //TODO(28) Declarar atributos para os campos de EditText definidos em activity_main.xml
