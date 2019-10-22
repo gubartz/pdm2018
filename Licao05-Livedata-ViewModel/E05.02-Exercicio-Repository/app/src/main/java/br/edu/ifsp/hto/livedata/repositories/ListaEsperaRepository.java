@@ -1,12 +1,6 @@
 package br.edu.ifsp.hto.livedata.repositories;
 
-import android.app.Application;
-import android.arch.lifecycle.LiveData;
-
-import java.util.List;
-
-import br.edu.ifsp.hto.livedata.database.AppDatabase;
-import br.edu.ifsp.hto.livedata.entities.ListaEspera;
+import androidx.lifecycle.LiveData;
 
 public class ListaEsperaRepository {
     //TODO(1) Declarar um atributo do tipo AppDatabase

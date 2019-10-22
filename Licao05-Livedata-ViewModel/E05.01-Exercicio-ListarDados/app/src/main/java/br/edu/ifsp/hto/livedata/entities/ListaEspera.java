@@ -1,6 +1,6 @@
 package br.edu.ifsp.hto.livedata.entities;
 
-import android.arch.persistence.room.ColumnInfo;
+import androidx.room.ColumnInfo;
 
 import java.util.Arrays;
 import java.util.Calendar;

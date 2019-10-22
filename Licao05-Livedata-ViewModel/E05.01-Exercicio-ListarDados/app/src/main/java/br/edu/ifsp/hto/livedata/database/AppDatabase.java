@@ -1,7 +1,7 @@
 package br.edu.ifsp.hto.livedata.database;
 
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 import android.content.Context;
 
 //TODO(5) Adicionar a annotation Database

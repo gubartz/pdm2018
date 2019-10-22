@@ -1,7 +1,7 @@
 package br.edu.ifsp.hto.viewmodel.viewmodel;
 
 import android.app.Application;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 
 import br.edu.ifsp.hto.viewmodel.entities.ListaEspera;
 import br.edu.ifsp.hto.viewmodel.repositories.ListaEsperaRepository;

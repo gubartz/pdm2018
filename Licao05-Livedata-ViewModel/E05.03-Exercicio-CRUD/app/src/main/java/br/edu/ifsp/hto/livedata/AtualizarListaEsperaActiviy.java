@@ -1,14 +1,12 @@
 package br.edu.ifsp.hto.livedata;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.EditText;
 
 import br.edu.ifsp.hto.livedata.entities.ListaEspera;
-import br.edu.ifsp.hto.livedata.repositories.ListaEsperaRepository;
 
 public class AtualizarListaEsperaActiviy extends AppCompatActivity {
     static final String EXTRA_LISTA_ESPERA = "lista_espera";
